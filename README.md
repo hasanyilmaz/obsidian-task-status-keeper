@@ -117,7 +117,6 @@ This allows flexible tagging while maintaining consistent status representation.
 ## Support
 
 - **Issues**: [GitHub Issues](https://github.com/hasanyilmaz/obsidian-task-status-keeper/issues)
-- **Discussions**: [GitHub Discussions](https://github.com/hasanyilmaz/obsidian-task-status-keeper/discussions)
 
 ## License
 
