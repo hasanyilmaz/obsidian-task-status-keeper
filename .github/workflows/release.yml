@@ -1,0 +1,41 @@
+name: Release Obsidian Plugin
+
+on:
+  push:
+    tags:
+      - '*'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Create release zip
+        run: |
+          mkdir release
+          cp main.js manifest.json styles.css release/ 2>/dev/null || cp main.js manifest.json release/
+          cd release
+          zip -r ../task-status-keeper-${{ github.ref_name }}.zip .
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: |
+            task-status-keeper-${{ github.ref_name }}.zip
+            main.js
+            manifest.json
+          body: |
+            ## Task Status Keeper ${{ github.ref_name }}
+
+            ### Installation
+            1. Download `task-status-keeper-${{ github.ref_name }}.zip`
+            2. Extract to `<vault>/.obsidian/plugins/task-status-keeper/`
+            3. Reload Obsidian
+            4. Enable the plugin in Settings → Community plugins
+
+            ### Changes
+            See [CHANGELOG.md](https://github.com/hasanyilmaz/obsidian-task-status-keeper/blob/main/CHANGELOG.md) for details.
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
