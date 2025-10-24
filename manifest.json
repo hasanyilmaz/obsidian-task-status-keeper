@@ -1,0 +1,10 @@
+{
+  "id": "task-status-keeper",
+  "name": "Task Status Keeper",
+  "version": "1.0.0",
+  "minAppVersion": "1.5.0",
+  "description": "Automatically updates task checkbox statuses based on tags. Supports multiple tags per status with customizable priority rules.",
+  "author": "hasanyilmaz",
+  "authorUrl": "https://github.com/hasanyilmaz/obsidian-task-status-keeper",
+  "isDesktopOnly": false
+}
